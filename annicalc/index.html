@@ -7,6 +7,28 @@
 <link href='https://fonts.googleapis.com/css?family=Chilanka' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Faster One' rel='stylesheet'>
 <link href="embed.css" rel="stylesheet">
+ <style>
+ .flip-back {
+	background-color: transparent;
+   display: flex;
+	justify-content: center;
+	align-items: center;
+   border-radius:50%;
+	float: center;
+}
+
+.flip{
+	animation: rotate 2s ease-out infinite;
+}
+@keyframes rotate {
+	20%, 80% {
+		transform: rotateY(180deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+ </style>
 </head>
 <body onload="thenitesharyafun()"><br>
 <div class="main">
@@ -327,7 +349,7 @@
     <span class="index"> 101-150 </span></a></div>
  </div>
 </div>
-<span class="legend2 chilanka">
+<span class="legend2 chilanka flip-back">
 
 <div id="result-wrapper">
 <span onclick="thenitesharya(this)"><span class="all-days3">Loading..</span> days of love &#128157;</span>
