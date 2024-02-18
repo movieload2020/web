@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="initial-scale=1, width=device-width"/>
+<style>
+body{margin:0px 8px;}
+.calc {
+	background: #f0f0f0;
+	padding:10px;
+	border:1px #ccc solid;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+}
+select {
+	font-size:large;
+	padding:5px;
+   border-radius: 5px;
+}
+input[type=text],[type=number],[list=place] { 
+	font-size:large;
+	padding:5px;
+	width:90%;
+ }
+input[type=button] { 
+	padding: 8px;
+ }
+textarea{
+  font-size:1.1em; 
+  width:100%; 
+  background:#e0e0e0; 
+  border:1px #c0c0c0 solid;
+ }
+</style>
+</head>
+<body>
+<form name="copy" class="calc">
+   <p>Select Color :</p>
+ <select name="T8" id="T8">
+    <option value="dc1">1</option>
+    <option value="dc2">2</option>
+    <option value="dc3">3</option>
+    <option value="dc4">4</option>
+    <option value="dc5">5</option>
+  </select>
+
+
+   <p>Number Of Meets(Exp: Sweet Meet 199) :</p>
+	<input type="number" id="T7" name="T7" placeholder="199" required>
+</input>
+   <p>Enter Days Passed(Exp: 1497 Day):</p>
+	<input type="number" id="T5" name="T5" placeholder="1497" required>
+</input>
+
+   <p>Enter Gap(Exp: 05 Day):</p>
+	<input type="number" id="Gap" name="Gap" placeholder="05" required>
+</input>
+
+	<p>Enter Meet Date(Exp: 14 June 2022):</p>
+  <input type="text" id="D1" name="D1"/>
+
+
+   <p>Enter Place(Exp: Surongo):</p>
+<input list="place" name="T6"  id="T6"/>
+<datalist id="place">
+  <option value="Best_Eat_Cafe" select>
+  <option value="Food_Point">
+  <option value="Surongo">
+  <option value="&#128150; Special">
+</datalist>
+
+	<p><input type="button" value="Generate Code" onclick="GenerateButton()">
+
+	<input type="button" value="Reset" onclick="OnReset()"></p>
+	
+	<p><textarea rows="9" id="TA1" name="TA1" onclick="OnSelectCode()"></textarea></p>
+<br><br><br><br>
+	</form><br>
+<center> X </center>
+	<script>
+		var new_url,T5,T6,T7,T8,TA1,D1,Gap;
+		window.onload = function() 
+		{
+			new_url = "";
+			T5 = document.getElementById('T5');
+			T6 = document.getElementById('T6');
+			T7 = document.getElementById('T7');
+			T8 = document.getElementById('T8');
+			D1 = document.getElementById('D1');
+			Gap = document.getElementById('Gap');
+			TA1 = document.getElementById('TA1');
+		};
+		function OnSelectCode()
+		{
+			document.copy.TA1.select();
+		}
+		function OnReset()
+		{
+			T5.value="";
+			T6.value="";
+			T7.value="";
+			T8.value="";
+			D1.value="";
+			Gap.value=""; 
+			TA1.value="";
+		}
+		function GenerateButton() 
+		{
+			dest2 = T5.value;
+			dest3 = T6.value;
+			dest4 = T7.value;
+			dest5 = T8.value;
+			date = D1.value;
+			gap1 = Gap.value;
+			if( dest2=="" ) dest2= new_url;
+			if( dest3=="" ) dest3= new_url;
+			if( dest4=="" ) dest4= new_url;
+			if( dest5=="" ) dest4= new_url;
+			if( date=="" ) date= new_url;
+			if( gap1=="" ) gap1= new_url;
+			dest2.replace("%20"," ");
+			dest3.replace("%20"," ");
+			dest4.replace("%20"," ");
+			dest5.replace("%20"," ");
+			date.replace("%20"," ");
+			gap1.replace("%20"," ");
+			{
+				txt = '\n<div id="'
+   txt+= dest5;
+				txt+= '"><ul>\n<li id="maxm">Sweet Meet '
+   txt+= dest4;
+				txt+= '</li>\n<li id="maxn">('
+   txt+= dest2;
+          txt+=')</li>\n<li id="maxg">[ ';
+   txt+= gap1;
+				txt+= ' ]</li>\n<li id="maxd">';
+	txt+= date;
+				txt+= '</li>\n<li id="maxp">@';
+   txt+= dest3;
+          txt+= '</li>\n</ul></div>';
+			}
+			TA1.value = txt;
+		}
+	</script> 	
+<script>
+Date.prototype.getMonthName = function() {
+    var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    return monthNames[this.getMonth()];
+}
+
+  var today = new Date();
+
+ var month_Name = new Date().getMonthName();
+
+ var date = today.getDate()+' '+today.getMonthName()+' '+today.getFullYear();
+
+  document.getElementById("D1").value = date;
+</script>
+
+</body>
+</html>
