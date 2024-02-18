@@ -34,6 +34,9 @@ textarea{
 </head>
 <body>
 <form name="copy" class="calc">
+
+	<div id="m151"></div>
+	
    <p>Select Color :</p>
  <select name="T8" id="T8">
     <option value="dc1">1</option>
@@ -154,6 +157,11 @@ Date.prototype.getMonthName = function() {
  var date = today.getDate()+' '+today.getMonthName()+' '+today.getFullYear();
 
   document.getElementById("D1").value = date;
+</script>
+	
+
+<script>
+$( "#m151" ).load( "anni-calc/index.html .all-days3" );
 </script>
 
 </body>
